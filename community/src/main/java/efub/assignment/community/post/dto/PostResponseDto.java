@@ -17,7 +17,7 @@ public class PostResponseDto {
     private String writerNickname;
     private String title;
     private String content;
-    private String writerOpen;
+    private boolean writerOpen;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
@@ -28,7 +28,7 @@ public class PostResponseDto {
                 writerName,
                 post.getTitle(),
                 post.getContent(),
-                post.getWriterOpen(),
+                post.isWriterOpen(),
                 post.getCreatedDate(),
                 post.getModifiedDate()
         );

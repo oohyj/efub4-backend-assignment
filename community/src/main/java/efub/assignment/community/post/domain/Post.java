@@ -39,8 +39,8 @@ public class Post extends BaseTimeEntity {
     @Column(nullable = false, length = 1000)
     private String content;
 
-    @Column(nullable = false, length = 10)
-    private String writerOpen;
+    @Column(nullable = false)
+    private boolean writerOpen;
 
     /* mappedBy : 연관관계의 주인 */
     /* cascade : 엔티티 삭제 시 연관된 엔티티의 처리 방식 */
@@ -55,7 +55,7 @@ public class Post extends BaseTimeEntity {
     private List<PostHeart> postHeartList = new ArrayList<>();
 
     @Builder
-    public Post(Account account, Board board, String title, String content, String writerOpen){
+    public Post(Account account, Board board, String title, String content, boolean writerOpen){
         this.account = account;
         this.board = board;
         this.title = title;

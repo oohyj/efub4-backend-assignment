@@ -30,7 +30,7 @@ public class PostService {
 
     public Post createNewPost(PostRequestDto dto){ //새로운 글을 생성하는 메소드
         Account account = accountService.findAccountByNickname(dto.getWriterNickname()); //dto의 accountId로 계정찾기
-        Board board = boardService.findBoardById(Long.parseLong(dto.getBoardId())); //dto의 boardId로 board찾기
+        Board board = boardService.findBoardById(dto.getBoardId()); //dto의 boardId로 board찾기
         Post post = dto.toEntity(board,account);
         Post savedPost = postRepository.save(post);  // post 정보를 DB에 저장
         return savedPost; // post 반환

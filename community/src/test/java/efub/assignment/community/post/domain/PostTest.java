@@ -46,7 +46,7 @@ public class PostTest {
                 .account(account1)
                 .content("아뇨 딘 모릅니다. 누구죠")
                 .board(board1)
-                .writerOpen("아 이거 boolean으로 해야하는데")
+                .writerOpen(true)
                 .title("딘에 관하여")
                 .build();
     }

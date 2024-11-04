@@ -5,6 +5,7 @@ import efub.assignment.community.account.domain.Account;
 import efub.assignment.community.board.domain.Board;
 import efub.assignment.community.post.domain.Post;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -12,8 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class PostRequestDto {
-    @NotBlank(message = "게시판 id는 필수입니다.")
-    private String boardId;
+
+    @NotNull(message = "게시판 id는 필수입니다.")
+    private Long boardId;
 
     @NotBlank(message = "계정 닉네임은 필수입니다.")
     private String writerNickname;
@@ -25,7 +27,8 @@ public class PostRequestDto {
     private String content;
 
     @Value("${writer.open:false}")
-    private String writerOpen;
+    private boolean writerOpen;
+
 
     public Post toEntity(Board board, Account account){
         return Post.builder()
